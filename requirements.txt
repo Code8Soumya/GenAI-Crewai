@@ -1,0 +1,13 @@
+ipykernel
+jupyter
+ipywidgets
+crewai
+crewai-tools 
+langchain
+langsmith
+langchain-google-genai
+python-dotenv
+agentops
+pytrends
+pyairtable
+replicate
