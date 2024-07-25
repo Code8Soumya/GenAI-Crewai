@@ -164,4 +164,5 @@ cython_debug/
 /test.ipynb
 trained_agents_data.pkl
 crewAI-examples/
+logs.txt
 

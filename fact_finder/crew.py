@@ -16,13 +16,16 @@ os.environ["LANGSMITH_API_KEY"]=os.getenv("LANGSMITH_API_KEY")
 api = Api(os.environ['AIRTABLE_API_KEY'])
 table = api.table('appvGMvGGmDBicDGD', 'tblq6rzmzxPY19fKV')
 
-Number_of_facts = 5
+Number_of_facts = 7
 
 for i in trending_topic_finder(Number_of_facts):
     crew=Crew(
         agents=[fact_finder_agent],
         tasks=[fact_finding_task],
         process=Process.sequential,
+        cache=True,
+        verbose=True,
+        output_log_file=True,
     )
     result=crew.kickoff(inputs={'topic':i})
     table.create(
@@ -31,4 +34,4 @@ for i in trending_topic_finder(Number_of_facts):
             'Fact':result,
         }
     )
-    time.sleep(1)
+    time.sleep(2)
